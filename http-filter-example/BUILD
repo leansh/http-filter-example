@@ -25,8 +25,15 @@ api_proto_library(
 
 envoy_cc_library(
     name = "http_filter_lib",
-    srcs = ["http_filter.cc"],
-    hdrs = ["http_filter.h"],
+    srcs = [
+        "http_filter.cc",
+        "dw/libDw.dylib"
+    ],
+    hdrs = [
+        "http_filter.h", 
+        "dw/graal_isolate.h",
+        "dw/libDw.h"
+    ],
     repository = "@envoy",
     deps = [
         ":http_filter_proto_cc",
